@@ -1,0 +1,111 @@
+/* * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+} */
+:root {
+    --main: hsl(178, 31%, 33%);
+    --mainlght: hsl(178, 31%, 60%);
+    --mainsuperlght: hsl(178, 10%, 95%);
+    --grey100: hsl(0, 1%, 97%);
+    --grey300: hsl(0, 1%, 70%);
+    --grey500: hsl(0, 1%, 50%);
+    --grey900: hsla(0, 1%, 30%, 10%);
+}
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: var(--mainsuperlght);
+}
+main {
+    width: auto;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+section {
+    width: 450px;
+    min-height: 450px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    background-color: #fff;
+    border: 1px solid var(--grey300);
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px var(--grey900);
+}
+h1 {
+    color:var(--main);
+
+}
+
+
+.form {
+    margin: 10px auto 20px;
+}
+#itemInput, #submit {
+    border: 1px solid var(--main);
+    border-radius: 0px;
+
+}
+#itemInput {
+    display: inline;
+    width: 150px;
+    height: 20px;
+    color: var(--grey500);
+}
+#submit {
+    background: white;
+    color: var(--main);
+    font-weight: bold;
+    height: 24px;
+    width: 24px;
+}
+
+
+
+#ul {
+    padding-bottom: 30px;
+    margin: 0;
+    width: 80%;
+}
+#ul li {
+    list-style: none;
+    background-color: white;
+    border: 1px solid var(--grey100);
+    padding: 5px;
+    margin: 5px;
+}
+#ul li:hover {
+    box-shadow: 0 0 10px var(--grey900);
+    border: 1px solid var(--grey300);
+    z-index: 2;
+}
+
+#ul li div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#ul li button {
+    background: white;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    background-color: rgb(83, 27, 27);
+    font-weight: bold;
+    height: 20px;
+    width: 20px;      
+    
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#ul li button:active {
+    background-color: rgb(133, 15, 15);
+}
