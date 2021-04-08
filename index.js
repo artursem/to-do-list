@@ -9,7 +9,7 @@ class ToDoList {
     };
     addItems = (e) => {
         e.preventDefault();
-        if(itemInput.value==false) {
+        if(itemInput.value==='') {
             alert('please enter value');
         } else {
             let taskContent = itemInput.value;
@@ -32,11 +32,11 @@ class ToDoList {
     };
     
     removeLi = (li) => {
-        let selected = this.tasks.find(val => val.id === li);
-        // console.log(selected.id);
-
+        const { tasks } = this;
+        let selected = tasks.find(el => el.id == li);
+        console.log('selected id = ', selected.id)
         // REMOVE FROM JS
-        this.tasks.splice(selected.id, 1);
+        tasks.splice(tasks.indexOf(selected), 1);
 
         // UPDATE DOM
         this.updateDomList();
@@ -48,12 +48,13 @@ class ToDoList {
 
         // ADD ALL ITEMS
         for (let i in this.tasks) {
+            const { tasks } = this;
             let newLi = document.createElement('li');
             let newDiv = document.createElement('div');
 
-            newDiv.innerHTML += `<input type="checkbox" id="check${i}">`; // checked
-            newDiv.innerHTML += this.tasks[i].taskContent;
-            newDiv.innerHTML += `<button class="trashBtn" id="trash${i}">${trashIcon}</button>`;
+            newDiv.innerHTML += tasks[i].checkbox;
+            newDiv.innerHTML += tasks[i].taskContent;
+            newDiv.innerHTML += tasks[i].trashBtn; 
 
             newLi.appendChild(newDiv);
             ul.appendChild(newLi);
@@ -61,11 +62,10 @@ class ToDoList {
 
         // TRASH BUTTONS
         let trashBtnAll = document.querySelectorAll('.trashBtn');
-        trashBtnAll.forEach((button, nr) => {
+        trashBtnAll.forEach((button) => {
             button.addEventListener('click', () => {
-                console.log('clicked ', nr);
-                
-                this.removeLi(nr);
+                let selectedID = parseInt(button.id.slice(6));
+                this.removeLi(selectedID);
             });
         });
     };
@@ -75,7 +75,9 @@ class ListItem {
     constructor(id, taskContent) {
         this.id = id;
         this.done = false;
-        this.taskContent = taskContent;
+        this.taskContent = `<span id="content-${this.id}">${taskContent}</span>`;
+        this.checkbox = `<input type="checkbox" id="checkbox-${this.id}">`;
+        this.trashBtn = `<button class="trashBtn" id="trash-${this.id}">${trashIcon}</button>`;
     }
 }
 
