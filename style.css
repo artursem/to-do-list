@@ -10,7 +10,8 @@
     --grey100: hsl(0, 1%, 97%);
     --grey300: hsl(0, 1%, 70%);
     --grey500: hsl(0, 1%, 50%);
-    --grey900: hsla(0, 1%, 30%, 10%);
+    --grey900: hsl(0, 1%, 20%);
+    --grey-shadow: hsla(0, 1%, 30%, 10%);
 }
 body {
     font-family: 'Lato', sans-serif;
@@ -36,7 +37,7 @@ section {
     background-color: #fff;
     border: 1px solid var(--grey300);
     border-radius: 10px;
-    box-shadow: 10px 10px 10px var(--grey900);
+    box-shadow: 10px 10px 10px var(--grey-shadow);
 }
 h1 {
     color:var(--main);
@@ -54,7 +55,7 @@ h1 {
 }
 #itemInput {
     display: inline;
-    width: 150px;
+    width: 300px;
     height: 20px;
     color: var(--grey500);
 }
@@ -70,7 +71,8 @@ h1 {
 
 #ul {
     padding-bottom: 30px;
-    margin: 0;
+    margin: 10 0 0 0;
+    padding: 0;
     width: 80%;
 }
 #ul li {
@@ -78,10 +80,10 @@ h1 {
     background-color: white;
     border: 1px solid var(--grey100);
     padding: 5px;
-    margin: 5px;
+    margin: 0px;
 }
 #ul li:hover {
-    box-shadow: 0 0 10px var(--grey900);
+    box-shadow: 0 0 10px var(--grey-shadow);
     border: 1px solid var(--grey300);
     z-index: 2;
 }
@@ -94,18 +96,17 @@ h1 {
 #ul li button {
     background: white;
     border: none;
-    border-radius: 50%;
-    color: white;
-    background-color: rgb(83, 27, 27);
+    color: var(--grey500);
+    background-color: white;
     font-weight: bold;
     height: 20px;
     width: 20px;      
-    
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
+    cursor: pointer;
+}
+#ul li button:hover {
+    color: var(--grey900);
+}
 
-}
-#ul li button:active {
-    background-color: rgb(133, 15, 15);
-}
+
+/* style checkbox */
+/* style li:hover box-shadow inset  */
